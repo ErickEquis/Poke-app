@@ -23,7 +23,6 @@ interface Props {
 // Recibe atributo 'pokemons' para ser manipulado
 const Home: NextPage<Props> = ({ pokemons }) => {
 
-  console.log(pokemons)
   // 'return' todo lo que devolvera la app
   // Muestra las tarjetas Pokemon
   return (
@@ -56,7 +55,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   // 'data' consume API referenciando la URL y limitandola a 151 datos
   const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151')
 
-  console.log(data)
 
   // 'pokemons': mapeo de API
   const pokemons: SmallPokemon[] = data.results.map( (poke, i) => ({
